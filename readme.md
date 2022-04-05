@@ -1,7 +1,7 @@
 # Students record system for WIUT students
 
 ## About
-This is a server-side application to record students exam results. You can see, add, edit and delete(this is coming soon) students.
+This is a server-side application to record students exam results. You can see, add, edit and delete students.
 
 ## Pages
 - Home (/) - page to give brief information about the application 

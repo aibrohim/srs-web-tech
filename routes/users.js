@@ -74,11 +74,20 @@ router
 
       fs.writeFileSync("students.json", JSON.stringify(students))
 
-      res.redirect(303, "/students");
+      res.redirect("/students");
     }
   )
-  .delete((req, res) => {
-    res.send("delete student")
-  })
+
+router.post("/delete/:id", (req, res) => {
+  const deletingStudent = req.params.id;
+
+  const deletingStudentIndex = students.findIndex(student => student.id == deletingStudent);
+
+  students.splice(deletingStudentIndex, 1);
+
+  fs.writeFileSync("students.json", JSON.stringify(students));
+
+  res.redirect("/students");
+})
 
 module.exports = router;
