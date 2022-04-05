@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container my-5">
+    <div class="d-flex justify-content-between">
+      <h1 class="h2">Students Record System</h1>
+
+      <a href="/students/add" class="d-flex align-items-center btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#edit-student-modal">
+        <span class="me-2">Add new student</span>
+        <i class="fa-solid fa-plus"></i>
+      </a>
+    </div>
+
+    <section class="mt-5">
+      <p class="text-end">Count: <%= students.length%></p>
+
+      <table id="students-table" class="table table-striped align-middle">
+        <thead class="align-middle">
+          <tr>
+            <th class="text-center">ID</th>
+            <th>Name & Lastname</th>
+            <th>Marked date</th>
+            <th class="text-center">Mark</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="students-table-body">
+          <% students.forEach(function(student) { %>
+            <tr>
+              <td class="py-3 text-center"><%= student.id %></td>
+              <td class="py-3 fw-bold"><%= student.name %> <%= student.lastName %></td>
+              <td class="py-3"><%= format(new Date(student.markedDate), "yyyy-MM-dd") %></td>
+              <td class="py-3 text-center"><%= student.mark %></td>
+              <td class="py-3 text-center">
+                <p class="h5"><span class="badge rounded-pill bg-<%= student.mark > 40 ? "success" : "danger" %>"><%= student.mark > 60 ? "Pass" : "Fail" %></span></p>
+              </td>
+              <td class="py-3 text-center">
+                <a href="/students/<%= student.id %>" class="btn btn-outline-secondary">
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+              </td>
+              <td class="py-3 text-center">
+                <button class="btn btn-outline-danger">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+
+</html>

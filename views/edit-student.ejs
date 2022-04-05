@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container my-5" style="max-width: 500px;">
+    <div class="d-flex justify-content-between">
+      <h1 class="h3">Edit student - <%= id %></h1>
+    </div>
+
+    <form action="/students/<%=id%>" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= name %>" aria-describedby="Name" placeholder="Enter name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="lastname">Lastname</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" value="<%= lastName %>" aria-describedby="Lastname" placeholder="Enter lastname">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="mark">Mark</label>
+        <input type="number" class="form-control" id="mark" name="mark" value="<%= mark %>" min="0" max="100" aria-describedby="Mark" placeholder="Enter mark">
+      </div>
+
+      <button class="btn btn-primary d-block w-100" type="submit">Edit</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
