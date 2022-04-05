@@ -15,7 +15,7 @@ This is a server-side application to record students exam results. You can see, 
 
 ## Links
 - [Github](https://github.com/aibrohim/srs-web-tech)
-- [Glitch](https://scratched-sandy-confidence.glitch.me)
+- [Glitch](https://selective-cliff-bow.glitch.me)
 
 ## Application Dependencies
 - Nodemon - for automatic restarting server when code changes
